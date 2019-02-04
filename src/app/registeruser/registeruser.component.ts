@@ -1,4 +1,6 @@
+import { DatashareService } from './../dataShare/datashare.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registeruser',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisteruserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datashare: DatashareService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  login(username: string, password: string) {
+    this.datashare.validateUser(username, password).subscribe(
+      data => {
+        if (data && data.isAuthorised) {
+          console.log(data);
+          localStorage.clear();
+          localStorage.setItem("username", data.username);
+          this.router.navigateByUrl('/quizz')
+        }
+      }, err => {
+        console.error(err);
+      }
+    )
   }
 
 }

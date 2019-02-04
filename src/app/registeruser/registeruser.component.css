@@ -1,0 +1,9 @@
+button.btn-submit {
+  width: 100%;
+}
+
+.login-header {
+  font-size: 30px;
+  padding: 24px;
+  text-align: center;
+}
