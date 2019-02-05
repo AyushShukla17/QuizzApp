@@ -38,12 +38,24 @@ export class QuizComponent implements OnInit {
     }, 1000)
   }
 
-  checkAnswer(answer) {
-    this.datashare.userAns.push({
-      "id": this.datashare.questionsProgress,
-      "answer": answer
-    });
-    if (this.datashare.quizzAns[this.datashare.questionsProgress].Answer === answer) {
+  setAnswer(answer) {
+    if (this.datashare.userAns[this.datashare.questionsProgress]) {
+      this.datashare.userAns[this.datashare.questionsProgress]["answer"] = answer;
+    }
+    else {
+      this.datashare.userAns.push({
+        "id": this.datashare.questionsProgress,
+        "answer": answer
+      });
+    }
+  }
+
+  checkAnswer() {
+    if (!this.datashare.userAns[this.datashare.questionsProgress]) {
+      this.toastr.warningToastr("Please select atleast one option", "Warning");
+      return;
+    }
+    if (this.datashare.quizzAns[this.datashare.questionsProgress].Answer === this.datashare.userAns[this.datashare.questionsProgress].answer) {
       this.toastr.successToastr("Right Answer!!", "Congrats");
       this.datashare.correctAnswer++;
     } else {

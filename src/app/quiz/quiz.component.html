@@ -16,12 +16,15 @@
       <div class="card-action">
         <a *ngFor="let option of datashare.questions[datashare.questionsProgress].options; let i = index;">
           <div *ngIf="option">{{option}}
-            <a class="waves-effect waves-light btn" (click)="checkAnswer(datashare.questions[datashare.questionsProgress].options[i])">Select</a>
+            <a class="btn waves-effect waves-orange" (click)="setAnswer(datashare.questions[datashare.questionsProgress].options[i])">Select</a>
           </div>
         </a>
       </div>
     </div>
-
-
+    <div>
+      <a class="btn waves-effect waves-light confirm-button" (click)="checkAnswer()">
+        Confirm
+      </a>
+    </div>
   </div>
 </div>
