@@ -1,4 +1,6 @@
+import { DatashareService } from './../dataShare/datashare.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datashare: DatashareService, private router: Router) { }
 
   ngOnInit() {
   }

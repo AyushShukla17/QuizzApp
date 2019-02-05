@@ -18,7 +18,6 @@ export class RegisteruserComponent implements OnInit {
     this.datashare.validateUser(username, password).subscribe(
       data => {
         if (data && data.isAuthorised) {
-          console.log(data);
           localStorage.clear();
           localStorage.setItem("username", data.username);
           this.router.navigateByUrl('/quizz')
