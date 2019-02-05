@@ -11,8 +11,31 @@ export class ResultComponent implements OnInit {
 
   constructor(private datashare: DatashareService, private router: Router) { }
 
-  ngOnInit() {
+  pieChartOptions = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: "white",
+        fontSize: 24
+      }
+    }
+  }
 
+  pieChartLabels = ['Correct', 'Incorrect'];
+  pieChartData: any = [
+    {
+      data: []
+    }
+  ];
+  pieChartColor: any = [
+    {
+      backgroundColor: ['rgba(30, 169, 224, 0.8)',
+        'rgba(255,165,0,0.9)'
+      ]
+    }
+  ]
+  ngOnInit() {
+    this.pieChartData = [{ "data": [this.datashare.correctAnswer, 3 - this.datashare.correctAnswer] }]
   }
 
 }

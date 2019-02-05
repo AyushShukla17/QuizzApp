@@ -14,6 +14,7 @@ export class QuizComponent implements OnInit {
   constructor(private datashare: DatashareService, private router: Router, public toastr: ToastrManager) { }
 
   ngOnInit() {
+    this.datashare.correctAnswer = 0;
     this.datashare.questionsProgress = 0;
     this.datashare.getQuestions().subscribe(
       (data) => {

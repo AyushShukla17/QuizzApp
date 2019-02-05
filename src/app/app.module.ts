@@ -12,6 +12,7 @@ import { ResultComponent } from './result/result.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ng6-toastr-notifications';
+import { ChartsModule } from 'ng2-charts'
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
   imports: [
     BrowserModule,
     FormsModule,
+    ChartsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(QuizzRoutes)
