@@ -40,7 +40,8 @@ export class DatashareService {
   questionsProgress: number;
   timer: number = 180;
   timercontroller: any;
-  correctAnswer:number = 0;
+  correctAnswer: number = 0;
+  userAns: any = [];
   constructor() { }
 
   validateUser(username: string, password: string): Observable<any> {
@@ -56,9 +57,7 @@ export class DatashareService {
     return Observable.of(this.quizzQuestions)
   }
 
-  validateResult(){
-    
-  }
+
 
 
 }

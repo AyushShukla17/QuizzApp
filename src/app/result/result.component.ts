@@ -12,6 +12,7 @@ export class ResultComponent implements OnInit {
   constructor(private datashare: DatashareService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
 }
