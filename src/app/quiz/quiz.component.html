@@ -15,8 +15,8 @@
       </div>
       <div class="card-action">
         <a *ngFor="let option of datashare.questions[datashare.questionsProgress].options; let i = index;">
-          <div *ngIf="option">{{option}}
-            <a class="btn waves-effect waves-orange" (click)="setAnswer(datashare.questions[datashare.questionsProgress].options[i])">Select</a>
+          <div *ngIf="option" [class.Active]="selectedOption == i">{{option}}
+            <a class="btn waves-effect waves-orange" (click)="setAnswer(datashare.questions[datashare.questionsProgress].options[i],i,$event)">Select</a>
           </div>
         </a>
       </div>

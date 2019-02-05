@@ -35,7 +35,7 @@ export class ResultComponent implements OnInit {
     }
   ]
   ngOnInit() {
-    if (!this.datashare.userAns.length) {
+    if (!this.datashare.userAns.length && this.datashare.timer!=0) {
       this.router.navigate(['/quizz']);
     }
     this.pieChartData = [{ "data": [this.datashare.correctAnswer, 3 - this.datashare.correctAnswer] }]

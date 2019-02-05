@@ -9,7 +9,8 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 })
 export class QuizComponent implements OnInit {
 
-  timer: any = 0;
+
+  selectedOption: number = -1;
 
   constructor(private datashare: DatashareService, private router: Router, public toastr: ToastrManager) { }
 
@@ -38,7 +39,8 @@ export class QuizComponent implements OnInit {
     }, 1000)
   }
 
-  setAnswer(answer) {
+  setAnswer(answer, i, event) {
+    this.selectedOption = i;
     if (this.datashare.userAns[this.datashare.questionsProgress]) {
       this.datashare.userAns[this.datashare.questionsProgress]["answer"] = answer;
     }
@@ -62,6 +64,7 @@ export class QuizComponent implements OnInit {
       this.toastr.errorToastr("Wrong Answer!!", "Oops!!")
     }
     this.datashare.questionsProgress++;
+    this.selectedOption = -1;
     if (this.datashare.questionsProgress === 3) {
       clearInterval(this.datashare.timercontroller);
       this.router.navigate(['/result']);
